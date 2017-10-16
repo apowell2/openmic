@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   get 'venue/new'
   get 'events/new'
 
+  
+
   get'/newevent', to: 'events#new'
   post '/newevent',  to: 'events#create'
 

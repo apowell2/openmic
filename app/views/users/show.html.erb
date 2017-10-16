@@ -6,3 +6,7 @@
      <h2><%= link_to user_event.event.name, user_event.event %></h2>
    <% end %>
  <% end %>
+ <% if current_user %>
+ <%= link_to "Unsubscribe", user_path(current_user) , class: "btn btn-lg btn-primary margin-top-15",
+                               method: :delete, data: { confirm: "Delete #{current_user.email}" } %>
+ <%end %>

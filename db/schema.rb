@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010012315) do
+ActiveRecord::Schema.define(version: 20171013014615) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,10 @@ ActiveRecord::Schema.define(version: 20171010012315) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "venue_id"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   create_table "user_events", force: :cascade do |t|
@@ -43,9 +47,6 @@ ActiveRecord::Schema.define(version: 20171010012315) do
     t.string "password_digest"
     t.string "google_id"
     t.string "facebook_id"
-    t.float "latitude"
-    t.float "longitude"
-    t.index [nil], name: "index_users_on_network_id"
   end
 
   create_table "venues", force: :cascade do |t|
@@ -59,6 +60,10 @@ ActiveRecord::Schema.define(version: 20171010012315) do
     t.datetime "updated_at", null: false
     t.string "password"
     t.string "password_digest"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
   end
 
 end

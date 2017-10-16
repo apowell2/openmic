@@ -5,6 +5,7 @@
 <% unless @event.user_events.any? {|user_event| user_event.user = current_user} %>
   <%= form_tag user_events_path, method: 'post'%>
   <%= hidden_field_tag 'event_id', @event.id %>
+  <%= image_tag @event.image.url(:medium) %>
   <%= submit_tag "sign up for this event" %>
   <%else%>
   <h2> You are already Signed Up </h2>
