@@ -1,19 +1,17 @@
+<<<<<<< HEAD
 
 <%= image_tag @venue.image.url(:medium) %>
+=======
+<h1><%= @venue.name %></h1>
+<h4><%= @venue.email %></h4>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{@venue.latitude},#{@venue.longitude}&markers=#{@venue.latitude},#{@venue.longitude}&zoom=12&size=300x200&key=AIzaSyD0JudhxVsaIVYpcKcSJJaRAkXVaLBGmmY",
+                class: 'img-fluid img-rounded', alt: "#{@venue.email} on the map"%>
+>>>>>>> a8d47d07859b925768501b6049b15dd5247593ed
 <% if @events.nil? %>
     <h1> Add a new event and you'll find them here.</h1>
 <% else %>
-    <h1> Your Upcoming Events </h1>
+    <h2> Events at at this Venue </h2>
   <% @events.each do |event| %>
-    <h2><%= link_to event.name, event %></h2>
+    <li><%= link_to event.name, event %> Starts at <%= event.start.localtime %></li>
   <% end %>
 <% end %>
-
-
-
-
-
-
-
-
- </div>

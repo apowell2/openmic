@@ -1,6 +1,6 @@
 class Venue < ApplicationRecord
   has_many :events
-  validates :password, presence: true, length: { minimum: 6 }
+  validates :password, presence: true, on: :create, length: { minimum: 6 }
 
   has_attached_file :image, styles: { medium: "300x300>", thumb: "100x100>"}
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
@@ -11,4 +11,7 @@ class Venue < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+
+  geocoded_by :address
+  after_validation :geocode
 end

@@ -8,9 +8,9 @@ class Event < ApplicationRecord
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['name LIKE ?', "%#{search}%"])
+      Event.where('name LIKE ?', "%#{search}%")
     else
-      find(:all)
+      Event.all
     end
   end
 end
